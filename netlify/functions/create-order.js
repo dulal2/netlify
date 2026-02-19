@@ -1,6 +1,8 @@
 const Razorpay = require('razorpay');
 
 exports.handler = async (event) => {
+    const body = event.body ? JSON.parse(event.body) : {};
+    const amount = body.amount || 50000;
     // Only allow POST requests from your app
     if (event.httpMethod !== "POST") {
         return { statusCode: 405, body: "Method Not Allowed" };
@@ -16,7 +18,7 @@ exports.handler = async (event) => {
         });
 
         const options = {
-            amount: 5000, // Amount in paise (e.g., 50000 for ₹500)
+            amount: amount, // Amount in paise (e.g., 50000 for ₹500)
             currency: "INR",
             receipt: `receipt_${Math.floor(Math.random() * 1000000)}`,
         };
