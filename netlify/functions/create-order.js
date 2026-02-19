@@ -1,8 +1,7 @@
 const Razorpay = require('razorpay');
 
 exports.handler = async (event) => {
-    const body = event.body ? JSON.parse(event.body) : {};
-    const amount = body.amount || 50000;
+
     // Only allow POST requests from your app
     if (event.httpMethod !== "POST") {
         return { statusCode: 405, body: "Method Not Allowed" };
