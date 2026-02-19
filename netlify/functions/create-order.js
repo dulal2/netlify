@@ -9,8 +9,7 @@ exports.handler = async (event, context) => {
     try {
         // 2. Parse body and handle potential empty input
         const data = event.body ? JSON.parse(event.body) : {};
-        const amount = data.amount
-        
+        const amount = data.amount;
 
         if (!amount) {
             return {
