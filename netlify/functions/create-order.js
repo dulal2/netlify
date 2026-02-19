@@ -16,7 +16,7 @@ exports.handler = async (event) => {
         });
 
         const options = {
-            amount: amount, // Amount in paise (e.g., 50000 for ₹500)
+            amount: 5000, // Amount in paise (e.g., 50000 for ₹500)
             currency: "INR",
             receipt: `receipt_${Math.floor(Math.random() * 1000000)}`,
         };
